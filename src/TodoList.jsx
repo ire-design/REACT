@@ -12,7 +12,7 @@ const TodoList = () => {
       description: 'lorem ipsum lorem',
       isComplete: false,
     },
-    {
+    { 
       id: 2,
       title: 'todo two',
       description: 'lorem ipsum lorem',
@@ -33,7 +33,7 @@ const TodoList = () => {
   ];
 
   // handling JS outside our elements
-  const todoitemsToRender = () => todos.map((todo) => {
+  const todoitemsToRender = todos.filter= () => todos.map((todo) => {
     return (
       <TodoItem
         key={todo.id}
@@ -44,6 +44,7 @@ const TodoList = () => {
     );
   });
 
+
   return (
     <div id='todolist'>
       <h1>Todo List Container</h1>
@@ -53,8 +54,9 @@ const TodoList = () => {
       </div>
       <div>
         <h3>Incomplete Tasks</h3>
+        {/* {todoitemsToRender} */}
       </div>
-      {/* {todoitemsToRender} */}
+      
 
       {/* when handling JS inside our elements */}
       {/* <>
