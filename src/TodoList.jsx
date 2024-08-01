@@ -33,16 +33,26 @@ const TodoList = () => {
   ];
 
   // handling JS outside our elements
-  const todoitemsToRender = todos.filter= () => todos.map((todo) => {
-    return (
-      <TodoItem
-        key={todo.id}
-        title={todo.title}
-        description={todo.description}
-        isComplete={todo.isComplete}
-      />
-    );
-  });
+  // Render completed items:
+let todoitemsToRender = todos.filter((todo) => todo.isComplete).map((todo
+  ) => (
+    <TodoItem
+    key={todo.id}
+    title={todo.title}
+    description={todo.description}
+    isComplete={todo.isComplete}
+    />
+  ))
+  // Render incomplete items:
+  let todoitemsToRenderIncomplete = todos.filter((todo) => !todo.isComplete).map
+  ((todo) => (
+    <TodoItem
+    key={todo.id}
+    title={todo.title}
+    description={todo.description}
+    isComplete={todo.isComplete}
+    />
+  ))
 
 
   return (
@@ -50,11 +60,11 @@ const TodoList = () => {
       <h1>Todo List Container</h1>
       <div>
         <h3>Completed Tasks</h3>
-        {/* {todoitemsToRender} */}
+            {todoitemsToRender} 
       </div>
       <div>
         <h3>Incomplete Tasks</h3>
-        {/* {todoitemsToRender} */}
+            {todoitemsToRenderIncomplete} 
       </div>
       
 
