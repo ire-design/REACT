@@ -1,13 +1,15 @@
 import React from "react";
+// A child component of the TodoItem
+
+function TodoItem({title, description}){
 
 
-const TodoItem = () => {
     return ( 
         <div id="todoitem">
-            <p>Title: our task</p>
-            <p>Description</p>
+            <p>Title: {title} </p>
+            <p>Description: {description}</p>
         </div>
-     );
+    );
 }
  
 export default TodoItem;

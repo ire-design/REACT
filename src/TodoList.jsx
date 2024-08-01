@@ -12,11 +12,11 @@ const TodoList = () => {
 
     return(
         <div id="todolist">
-            <div>Todo List Container</div>
-            <TodoItem/>
-            <TodoItem/>
-            <TodoItem/>
-            <TodoItem/>
+            Todo List Container
+            <TodoItem title='This is my task 1' description='this is my description 1'/>
+            <TodoItem title='This is my task 2' description='this is my description 2'/>
+            <TodoItem title='This is my task 3' description='this is my description 3'/>
+            <TodoItem title='This is my task 4' description='this is my description 4'/>
         </div>
     )
 }
