@@ -1,6 +1,11 @@
 import React from 'react';
 // this is a child component of <TodoList />
 function TodoItem({ todo }) {
+
+  const handleDelete = () => {
+    alert('i am to be deleted')
+  }
+
   return (
     <div id='todoitem'>
       <p>Title: {todo.title} </p>
@@ -13,8 +18,8 @@ function TodoItem({ todo }) {
         ) : (
           <p>task is Incomplete</p>
         )}
-        <button>Edit</button>
-        <button>Delete</button>
+        <button >Edit</button>
+        <button onClick={handleDelete}>Delete</button>
       </>
     </div>
   );
