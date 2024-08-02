@@ -1,8 +1,8 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-// this is the parent component of <TodoItem />
-// child component of <App />
+// This is the parent component of <TodoItem />
+// Child component of <App />
 
 const TodoList = () => {
   const todos = [
@@ -12,7 +12,7 @@ const TodoList = () => {
       description: 'lorem ipsum lorem',
       isComplete: false,
     },
-    { 
+    {
       id: 2,
       title: 'todo two',
       description: 'lorem ipsum lorem',
@@ -33,51 +33,27 @@ const TodoList = () => {
   ];
 
   // handling JS outside our elements
-  // Render completed items:
-let todoitemsToRender = todos.filter((todo) => todo.isComplete).map((todo
-  ) => (
-    <TodoItem
-    key={todo.id}
-    title={todo.title}
-    description={todo.description}
-    isComplete={todo.isComplete}
-    />
-  ))
-  // Render incomplete items:
-  let todoitemsToRenderIncomplete = todos.filter((todo) => !todo.isComplete).map
-  ((todo) => (
-    <TodoItem
-    key={todo.id}
-    title={todo.title}
-    description={todo.description}
-    isComplete={todo.isComplete}
-    />
-  ))
 
+  // we pass an arg, filterCondition, which can either be true or false
+  // then filter based on that arg
+  // after, we map over the filtered data
+  // then return the JSX
+  const todoItemsFilteredAndMapped = (filterCondition) =>
+    todos
+      .filter((todo) => todo.isComplete === filterCondition)
+      .map((todo) => <TodoItem key={todo.id} todo={todo} />);
 
   return (
     <div id='todolist'>
-      <h1>Todo List Container</h1>
+      <h2>Todo List Container</h2>
       <div>
         <h3>Completed Tasks</h3>
-            {todoitemsToRender} 
+        {todoItemsFilteredAndMapped(true)}
       </div>
       <div>
         <h3>Incomplete Tasks</h3>
-            {todoitemsToRenderIncomplete} 
+        {todoItemsFilteredAndMapped(false)}
       </div>
-      
-
-      {/* when handling JS inside our elements */}
-      {/* <>
-        {todos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            title={todo.title}
-            description={todo.description}
-          />
-        ))}
-      </> */}
     </div>
   );
 };
